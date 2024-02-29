@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Connexion réussie !";
         } else {
             // Identifiants invalides
-            echo "<span style='color: red;'>Adresse email ou mot de passe incorrect.</span>";;
+            echo "Adresse email ou mot de passe incorrect.";
         }
     } catch (PDOException $e) {
         echo "Erreur de connexion à la base de données : " . $e->getMessage();

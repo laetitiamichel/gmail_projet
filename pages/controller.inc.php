@@ -7,7 +7,6 @@
             static $_copyrigt = " LM ";
             /* quand c'est public => on appelle la variable en pointant 
             <?= $_page->_title ?>*/
-            /* public $_title = "ciné"; */
             public $_link_reset = "./css/reset.css";
             public $_link_header = "./css/header.css";
             public $_link_formulaire_page_1 = "./css/formulaire_page_1.css";

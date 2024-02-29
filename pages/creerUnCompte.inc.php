@@ -1,6 +1,6 @@
 <body>
 <header class="menu_principal">
-    <!-- #MENU GMAIL -->
+   <!--  # MENU GMAIL -->
     <figure class="imageGmail">
         <img src="./asset/mail.png" class="logo" alt="logo">
         <figcaption>
@@ -9,8 +9,8 @@
     </figure>
     <ul class="menu_gmail">       
         <li class="item"><a class="menu__item" href="#pour_les_pros">pour les pros</a></li>
-        <li class="item"><a class="menu__item" href="./connexion.html" target="blank">connexion</a></li>
-        <li class="item"><a class="menu__item active-page2" href="#creer_un_compte">créer un compte</a></li>
+        <li class="item"><a class="menu__item active-page" href="./connexion.php" target="blank">connexion</a></li>
+        <li class="item"><a class="menu__item " href="./index.php">créer un compte</a></li>
     </ul>    
     
 </header>
@@ -27,14 +27,15 @@
             <div class="bouton_creer_un_compte">
                 <a class="bouton_compte" href="#creer_un_compte" target="blank">créer un compte</a>
             </div>
-            <a class="bouton_fleche" type="button" href="#creer_un_compte">
+            <a class="bouton_fleche" href="#creer_un_compte">
                 <img class="fleche" id="fleche" src="./asset/arrow.png" alt="fleche du bas">
-            </button>
-         
-       <!--  #page 2 GMAIL => formulaire CONNEXION -->
-        <div class="formulaire_connexion" id="connexion">
-            <h1 class="h1_formulaire_connexion">
-                Bienvenue dans votre espace null
+            </a>
+    </div>
+
+        <!-- #page 2 GMAIL => formulaire créer un compte -->
+        <div class="formulaire_creer_un_compte" id="creer_un_compte">
+            <h1 class="h1_formulaire">
+                Une boîte de réception entièrement repensée
             </h1>
             <h2 class="h2_formulaire">
                 Avec les nouveaux onglets personnalisables, repérez
@@ -44,11 +45,13 @@
            <!--  #formulaire pour créer un compte -->
             <div class="inner-form_creer_un_compte" 
             aria-labelledby="creeruncompte nomCreerUnComptee prenomCreerUnCompte emailcreation mdpCreation btncreationcompte">
-                <fieldset> <!-- encadré qui contient le formulaire-->
+                  
+            <fieldset> <!-- encadré qui contient le formulaire-->
                     <legend>
-                        Connectez-vous à votre compte
+                        Créer un compte
                     </legend>
-                    <form action="#" method="get" id="creeruncompte">  
+                    <!-- méthode POST car PHP en post action=lien vers autre page -->
+                    <form action="index.php" method="post" id="creeruncompte">  
                         <label for="nomCreerUnCompte">
                          Nom*
                         </label>
@@ -67,7 +70,7 @@
                             <input
                             id="prenomConnexion"
                             type="text"
-                            name="Prénom"
+                            name="prenom"
                             placeholder="Votre Prénom"
                             aria-required="true"
                             >
@@ -78,39 +81,40 @@
                             <input 
                             id="emailconnexion"
                             type="email"
-                            name="Mail"
-                            placeholder="giusmili67@gmail.com"
+                            name="mail"
+                            placeholder=""
                             aria-required="true"
                             >
         
-                        <label for="mdpconnexion">
-                        Mot de passe*
+                        <label for="mdpCreation">
+                        Choisir votre mot de passe*
                         </label>
-                            <input 
-                            id="mdpconnexion" 
+                            <input
+                            id="mdpCreation" 
                             type="password"
                             name="password"
                             placeholder=""
                             aria-required="true"
                             >
         
-                        <input 
-                        id="btnConnexion" 
-                        type="submit" 
-                        value="connexion à votre compte">
+                        <input
+                            id="btncreationcompte"
+                            type="submit"
+                            value="valider votre compte"
+                            >
                     </form>
-                </fieldset>    
+                </fieldset>
+                <?php
+                   include_once __DIR__ ."/bdd.inc.php"
+                ?>
             </div>
-            <!-- #fin du formulaire pour créer un compte  -->
-        
+        <!-- #fin du formulaire pour créer un compte  -->
         </div>
-        <!-- #fin de la page 1 -->
-        
 </main>
-        
-<footer>
-   <!--  <?= Page::$_copyrigt ?> -->
-</footer>
+<!-- fin de la session de l'utilisateur: -->
+        <?php
+            session_unset();
+            session_destroy();
+        ?> 
 </body>
 </html>
-
