@@ -24,10 +24,10 @@
                 }
                 else{
                     $_SESSION["nom"] = $password;
-                    print "<section><p class=\"button-success-color\">Bonjour : ".$_SESSION["nom"]."</p></section>";
-                    print "<section><p><a href=\"session_user.php\" class=\"button-success button-success-color\">Vos infos</a></p></section>";
+                    /* print "<section><p class=\"button-success-color\">Bonjour : ".$_SESSION["nom"]."</p></section>"; */
+                    /* print "<section><p><a href=\"session_user.php\" class=\"button-success button-success-color\">Vos infos</a></p></section>"; */
                     // afficher la section récupérée
-                    echo '<section><p class="mark_id">ID de session récuperé via $_COOKIE : <br>'.$_COOKIE["PHPSESSID"].'</p></section>';
+                    /* echo '<section><p class="mark_id">ID de session récuperé via $_COOKIE : <br>'.$_COOKIE["PHPSESSID"].'</p></section>'; */
                 }
             }
         }

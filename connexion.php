@@ -81,13 +81,14 @@
 </main>
 
 <?php
-    /* $_id_session ? 
+    $_id_session ? 
     print "<em class=\"mark_id\">ID de session récupérer via session_id()<br>" .$_id_session. "<br></em>" : 
-    false; */
+    false;
     
     require_once __DIR__ . "/pages/connexionBdd.inc.php";
     # appel de la class Login
     Login::connect();
 ?> 
+
 </body>
 </html>

@@ -36,7 +36,6 @@
     
                 // Préparer la requête SQL pour insérer les données dans la base de données
                 $requete = $connexion->prepare("INSERT INTO utilisateurs (nom, prenom, mail, password) VALUES (:nom, :prenom, :mail, :password)");
-    
                 // Binder les paramètres
                 $requete->bindParam(":nom", $nom);
                 $requete->bindParam(":prenom", $prenom);
