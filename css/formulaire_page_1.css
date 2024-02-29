@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+:root{
+    --color-button-gmail: #dd5347;
+    --bgcolor: #fafafa;
+    --bgcolor-formulaire: #fcf7c3;
+    --bgcolor-formulaire-gris: #f8f5f5;
+    --color-button: #4E7CD9;
+  }
+
+
+  h1.h1_formulaire{
+    display: block;
+    width: 40%;
+    text-align: center;
+    padding: 5rem;
+    margin: 2rem auto 2rem;
+    font-size: x-large;
+
+   }
+  
+   h2.h2_formulaire{
+    display:block;
+    width: 40%;
+    margin: 2rem auto 2rem;
+    text-align: center;
+    align-items: center;
+    padding: 3rem;
+    font-size: small; 
+   }
+
+input[type="text"], 
+input[type="password"],
+input[type="email"],
+input[type="submit"]{
+    border: 0;
+   /*  background: none; */
+    
+}
+
+.inner-form_creer_un_compte fieldset{
+    border-radius: 1rem;
+    border: solid .1rem #D0D0D0;
+}
+.inner-form_creer_un_compte fieldset legend{
+    padding: 1rem;
+    font-size: large;
+}
+.inner-form_creer_un_compte{
+    width: 50%;
+    margin: 5rem auto 2rem;
+}
+.inner-form_creer_un_compte form *{
+    display: block;
+    padding: 1rem;
+}
+.inner-form_creer_un_compte label{
+    padding-left: 0rem;
+    font-weight: bolder;
+}
+.inner-form_creer_un_compte form input{
+    border-bottom: solid .1rem var(--bgcolor-formulaire-gris);
+    width: 100%;
+    line-height: 3.5rem;
+    padding: 0 .1rem;
+
+}
+
+.inner-form_creer_un_compte form input[type="text"]{
+    border-bottom: solid .1rem var(--bgcolor-formulaire-gris);
+    background: rgb(242,242,242, .8);
+    color:black;
+    font-weight: lighter;
+    font-size: inherit;
+}
+
+.inner-form_creer_un_compte form input[type="password"],
+.inner-form_creer_un_compte form input[type="email"]{
+    border-bottom: solid .1rem #ccc;
+    background: var(--bgcolor-formulaire); 
+    color:black;
+    font-weight: bolder;
+    font-size: inherit;
+}
+
+.inner-form_creer_un_compte form [placeholder]{
+    transition: all .6s ease-in-out;
+    padding: 0.8rem;
+   
+}
+
+/* send button */
+.inner-form_creer_un_compte form input[type="submit"]{
+    background-color: var(--color-button);
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    width: 50%;
+    height: auto;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: inherit;
+    line-height: 5rem;
+    border-radius: .4rem;
+ }
+
+ .error-message {
+    color: red;
+}

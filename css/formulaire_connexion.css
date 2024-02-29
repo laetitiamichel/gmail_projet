@@ -1,0 +1,98 @@
+:root{
+    --color-button-gmail: #dd5347;
+    --bgcolor: #fafafa;
+    --bgcolor-formulaire: #fcf7c3;
+    --bgcolor-formulaire-gris: #f8f5f5;
+    --color-button: #4D73E0ff;
+  }
+ 
+
+.h1_formulaire_connexion{
+    display: block;
+    width: 40%;
+    text-align: center;
+    padding: 3rem;
+    margin: 2rem auto 2rem;
+    font-size: x-large;
+    font-weight: lighter;
+  
+   } 
+  
+   
+
+  input[type="password"],
+  input[type="email"],
+  input[type="submit"]{
+    border: 0;
+    background: none;
+  }
+
+/* encadré du formulaire: */
+.inner-form_connexion fieldset{
+    border-radius: 1rem;
+    border: solid .1rem #D0D0D0;
+}
+
+/* légende du formulaire: connexion à un compte: */
+.inner-form_connexion fieldset legend{
+    padding: 1rem;
+    font-weight: bolder;
+}
+
+.inner-form_connexion{
+    width: 50%;
+    margin: 5rem auto 2rem;  
+}
+.inner-form_connexion form *{ 
+    display: block;
+    padding: 1rem;
+} 
+.inner-form_connexion label{
+    padding-left: 0rem;
+    font-weight: bolder;
+}
+.inner-form_connexion form input{
+    border-bottom: solid .1rem var(--bgcolor-formulaire); 
+    width: 100%;
+    line-height: 3.5rem;
+    padding: 0 .1rem;
+    
+}
+
+ 
+.inner-form_connexion form input[type="password"],
+.inner-form_connexion form input[type="email"]{
+    border-bottom: solid .1rem #ccc; 
+    background: var(--bgcolor-formulaire); 
+    color:black;
+    font-weight: bolder;
+}
+
+.inner-form_connexion form [placeholder]{
+    transition: all .6s ease-in-out;
+    padding: 0.8rem;
+    font-weight: bolder;
+ 
+    
+}
+
+/*Bouton connexion */
+.inner-form_connexion form input[type="submit"]{
+    background-color: var(--color-button);
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: inherit;
+    line-height: 5rem;
+    border-radius: .4rem;
+ }
+
+ .error-message {
+    color: red;
+}
