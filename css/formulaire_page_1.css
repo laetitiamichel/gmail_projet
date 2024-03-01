@@ -28,6 +28,32 @@
     font-size: small; 
    }
 
+.warning{
+    display:block;
+    text-align: center;
+    padding: 1rem;
+    color: red;
+}
+
+.success{
+    display:block;
+    text-align: center;
+    padding: 1rem;
+    color: blue;
+}
+.connec{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    margin-left: 35%;
+    background-color: var(--color-button-gmail);
+    color: var(--bgcolor);
+    cursor: pointer;
+    text-decoration: solid;
+    width: 30%;
+}
+
 input[type="text"], 
 input[type="password"],
 input[type="email"],
@@ -104,6 +130,3 @@ input[type="submit"]{
     border-radius: .4rem;
  }
 
- .error-message {
-    color: red;
-}

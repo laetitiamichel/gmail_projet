@@ -44,10 +44,12 @@
     
                 // Exécuter la requête
                 $requete->execute();
-                    echo 'Enregistrement réussi ! <a href="connexion.php">connectez-vous</a>';
+                    $_SESSION['mail'] = $_POST["mail"];
+                    echo '<a class="success">' . $_SESSION['mail'] . '</a><em class="success"> Enregistrement réussi ! </em><a href="connexion.php" class="connec"> connectez-vous </a>';
                 exit;
             } catch (PDOException $e) {
                 echo "Erreur de connexion à la base de données : " . $e->getMessage();
+               
             }
         } else {
             // Afficher les erreurs

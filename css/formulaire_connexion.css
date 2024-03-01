@@ -5,17 +5,18 @@
     --bgcolor-formulaire-gris: #f8f5f5;
     --color-button: #4D73E0ff;
   }
- 
+
 
 .h1_formulaire_connexion{
     display: block;
     width: 40%;
+    align-items: center;
+    padding-top: 5rem;
+    margin: 3rem auto 3rem;
     text-align: center;
-    padding: 3rem;
-    margin: 2rem auto 2rem;
     font-size: x-large;
     font-weight: lighter;
-    background-color: #fcf7c3;
+
    } 
   
    
@@ -93,6 +94,14 @@
     border-radius: .4rem;
  }
 
- .error-message {
+ .warning{
+    display:block;
+    align-items: center;
     color: red;
+}
+
+.success{
+    display:block;
+    align-items: center;
+    color: blue;
 }

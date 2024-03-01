@@ -5,34 +5,12 @@
   # retester en se connectant avec les mêmes paramètres d'enregistrement
   # confère exo user_connextion
 
-    // Configuration de la base de données
+// Configuration de la base de données
     $serveur = "localhost";
     $nomBaseDeDonnees = "creer_un_compte";
     $utilisateur = "root";
     $motDePasse = "root";
 
-    // class pour récupérer l'id de la session:
-    class Login{
-        static function connect(){
-            
-            //connexion user
-            if(isset($_POST['password']) && isset($_COOKIE['PHPSESSID'])){
-                
-                $password = $_POST["password"];
-                if(!$password){
-                    print "<section><p>Remplir les champs</p></section>";
-                }
-                else{
-                    $_SESSION["nom"] = $password;
-                    /* print "<section><p class=\"button-success-color\">Bonjour : ".$_SESSION["nom"]."</p></section>"; */
-                    /* print "<section><p><a href=\"session_user.php\" class=\"button-success button-success-color\">Vos infos</a></p></section>"; */
-                    // afficher la section récupérée
-                    /* echo '<section><p class="mark_id">ID de session récuperé via $_COOKIE : <br>'.$_COOKIE["PHPSESSID"].'</p></section>'; */
-                }
-            }
-        }
-    } 
-       
 # Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
@@ -44,22 +22,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $connexion = new PDO("mysql:host=$serveur;dbname=$nomBaseDeDonnees", $utilisateur, $motDePasse);
         $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Préparer la requête SQL pour récupérer l'utilisateur avec le mail spécifié
+       /*  // Préparer la requête SQL pour récupérer l'utilisateur avec le mail spécifié
         $requete = $connexion->prepare("SELECT * FROM utilisateurs WHERE mail = :mail");
         $requete->bindParam(":mail", $mail);
         $requete->execute();
-        $utilisateur = $requete->fetch(PDO::FETCH_ASSOC);
+        $utilisateur = $requete->fetch(PDO::FETCH_ASSOC); */
 
         // Vérifier si l'utilisateur existe et si le mot de passe est correct
-        if ($utilisateur && password_verify($password, $utilisateur["password"])) {
-            // L'utilisateur est authentifié, vous pouvez effectuer d'autres actions comme rediriger vers une page sécurisée
-            echo "Connexion réussie !";
-        } else {
-            // Identifiants invalides
-            echo "Adresse email ou mot de passe incorrect.";
+        if(isset($_POST["mail"]) || isset($_POST["password"])){
+            try {
+                $reponse = $connexion->query("SELECT mail, password FROM  utilisateurs WHERE mail = '{$_POST['mail']}' limit 1");
+                $DATA = $reponse->fetch();
+                $mail = $_POST["mail"];
+                $password = $_POST["password"];
+                if(!$mail || !$password){
+                    echo "<p class=\"warning\">Vous avez oubliez votre mail ou password?</p>";
+                }
+                else if(!password_verify($_POST["password"],$DATA['password'])){
+                    echo '<p class="warning">Erreur login ou mot de passe?</p>';
+                        }
+                    else if(password_verify($_POST["password"],$DATA['password']))
+                    {
+                    print "Vous êtes connectes";                             
+                    }
+            } catch (Exception $e) {
+            //throw $th;
+            }
         }
+
+    
     } catch (PDOException $e) {
-        echo "Erreur de connexion à la base de données : " . $e->getMessage();
+    echo "Erreur de connexion à la base de données : " . $e->getMessage();
     }
 }
 ?>

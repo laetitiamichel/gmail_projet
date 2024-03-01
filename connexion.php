@@ -1,7 +1,7 @@
 <?php
-    /* session_start(); */
-    $_id_session=session_id();
-# inclusion du head
+ 
+   // $_id_session=session_id();
+// inclusion du head
     include_once __DIR__ ."/pages/head.inc.php";
 ?>
 
@@ -30,7 +30,7 @@
        <!--  #page 2 GMAIL => formulaire CONNEXION -->
         <div class="formulaire_connexion" id="connexion">
             <h1 class="h1_formulaire_connexion">
-                Bienvenue dans votre espace null
+                Bienvenue dans votre espace <?= $_SESSION['mail'] ?>
             </h1>
             
            <!--  #formulaire pour se connecter -->
@@ -47,7 +47,7 @@
                             <input 
                             id="emailConnexion"
                             type="email"
-                            name="Mail"
+                            name="mail"
                             placeholder=""
                             aria-required="true"
                             >
@@ -81,13 +81,13 @@
 </main>
 
 <?php
-    $_id_session ? 
+    /* $_id_session ? 
     print "<em class=\"mark_id\">ID de session récupérer via session_id()<br>" .$_id_session. "<br></em>" : 
-    false;
+    false; */
     
     require_once __DIR__ . "/pages/connexionBdd.inc.php";
     # appel de la class Login
-    Login::connect();
+    /* Login::connect(); */
 ?> 
 
 </body>
